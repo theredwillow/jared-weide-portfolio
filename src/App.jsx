@@ -11,6 +11,7 @@ const App = () => (
         <div className="green line"></div>
         <div className="blue line"></div>
       </div>
+      <img src="/texas.svg" alt="From DFW, Texas"/>
       <div>
         Front-End Developer / UX Developer / JavaScript Expert
       </div>
