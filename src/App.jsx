@@ -4,8 +4,8 @@ import './App.css';
 const App = () => (
   <div className="App">
 
+    <div id="red-title" className="title">About Me</div>
     <div id="red" className="section">
-      About Me
       <div className="median">
         <div className="red line"></div>
         <div className="green line"></div>
@@ -22,6 +22,7 @@ const App = () => (
       </div>
     </div>
 
+    <div id="green-title" className="title">Projects</div>
     <div id="green" className="section">
       <div className="median">
         <div className="red line"></div>
@@ -57,6 +58,7 @@ const App = () => (
         </div>
     </div>
 
+    <div id="blue-title" className="title">Experience</div>
     <div id="blue" className="section">
       <div className="median">
         <div className="red line"></div>
