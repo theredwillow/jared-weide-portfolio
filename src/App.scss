@@ -104,31 +104,31 @@ $random-times:
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(255, 0, 0, 0.175);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
     #{nth($random-times, $i) * 1%} {
       box-shadow:
         inset 0.1vw 0 0.2vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(255, 0, 0, 0.175);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
     #{(nth($random-times, $i) + 1) * 1%} {
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(255, 0, 0, 0.175);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
     #{(nth($random-times, $i) + 2) * 1%} {
       box-shadow:
         inset 0.1vw 0 0.2vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(255, 0, 0, 0.175);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
     #{(nth($random-times, $i) + 3) * 1%} {
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(255, 0, 0, 0.175);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
   }
 
