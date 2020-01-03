@@ -1,0 +1,218 @@
+body {
+  font-family: sans-serif;
+  background-color: rgba(10, 10, 10, 0.9);
+  padding-top: 50px;
+  scroll-behavior: smooth;
+}
+
+.median {
+  display: block;
+  position: absolute;
+  height: 90%;
+  padding: 0;
+  top: 0;
+  z-index: -100;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, 0);
+
+  > * {
+    display: inline-block;
+    height: 100%;
+    margin: 0 2.5px;
+  }
+
+}
+
+.line {
+  width: 15px;
+  height: 100%;
+  box-shadow: inset 0.1vw 0 0.2vw rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+$colors: rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
+$color-names: red, green, blue;
+$animation-time: 10s;
+$random-times:
+  random(97),
+  random(97),
+  random(97);
+
+@for $i from 1 through 3 {
+
+  ##{nth($color-names, $i)}-title {
+    animation: #{nth($color-names, $i)}-title-flicker $animation-time infinite step-end;
+  }
+
+  ##{nth($color-names, $i)} {
+
+    .#{nth($color-names, $i)}.line {
+      animation: #{nth($color-names, $i)}-line-flicker $animation-time infinite step-end;
+    }
+
+    > div:not(.median) {
+      animation: #{nth($color-names, $i)}-info-flicker $animation-time infinite step-end;
+    }
+  }
+  
+  @keyframes #{nth($color-names, $i)}-title-flicker {
+    0% {
+      color: rgba(nth($colors, $i), 0.5);
+      text-shadow:
+        0 0 10px rgba(nth($colors, $i), 0.5),
+        0 0 15px rgba(nth($colors, $i), 0.5),
+        0 0 20px rgba(nth($colors, $i), 0.5),
+        0 0 40px rgba(nth($colors, $i), 0.5);
+    }
+    #{nth($random-times, $i) * 1%} {
+      color: rgba(nth($colors, $i), 0.25);
+      text-shadow:
+        0 0 5px rgba(nth($colors, $i), 0.25),
+        0 0 10px rgba(nth($colors, $i), 0.25),
+        0 0 20px rgba(nth($colors, $i), 0.25),
+        0 0 40px rgba(nth($colors, $i), 0.25);
+    }
+    #{(nth($random-times, $i) + 1) * 1%} {
+      color: rgba(nth($colors, $i), 0.5);
+      text-shadow:
+        0 0 10px rgba(nth($colors, $i), 0.5),
+        0 0 15px rgba(nth($colors, $i), 0.5),
+        0 0 20px rgba(nth($colors, $i), 0.5),
+        0 0 40px rgba(nth($colors, $i), 0.5);
+    }
+    #{(nth($random-times, $i) + 2) * 1%} {
+      color: rgba(nth($colors, $i), 0.25);
+      text-shadow:
+        0 0 5px rgba(nth($colors, $i), 0.25),
+        0 0 10px rgba(nth($colors, $i), 0.25),
+        0 0 20px rgba(nth($colors, $i), 0.25),
+        0 0 40px rgba(nth($colors, $i), 0.25);
+    }
+    #{(nth($random-times, $i) + 3) * 1%} {
+      color: rgba(nth($colors, $i), 0.5);
+      text-shadow:
+        0 0 10px rgba(nth($colors, $i), 0.5),
+        0 0 15px rgba(nth($colors, $i), 0.5),
+        0 0 20px rgba(nth($colors, $i), 0.5),
+        0 0 40px rgba(nth($colors, $i), 0.5);
+    }
+  }
+
+  @keyframes #{nth($color-names, $i)}-line-flicker {
+    0% {
+      box-shadow:
+        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(255, 0, 0, 0.175);
+    }
+    #{nth($random-times, $i) * 1%} {
+      box-shadow:
+        inset 0.1vw 0 0.2vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(255, 0, 0, 0.175);
+    }
+    #{(nth($random-times, $i) + 1) * 1%} {
+      box-shadow:
+        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(255, 0, 0, 0.175);
+    }
+    #{(nth($random-times, $i) + 2) * 1%} {
+      box-shadow:
+        inset 0.1vw 0 0.2vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(255, 0, 0, 0.175);
+    }
+    #{(nth($random-times, $i) + 3) * 1%} {
+      box-shadow:
+        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(255, 0, 0, 0.175);
+    }
+  }
+
+  @keyframes #{nth($color-names, $i)}-info-flicker {
+    0% {
+      text-shadow:
+        0 0 5px rgba(nth($colors, $i), 0.7),
+        0 0 10px rgba(nth($colors, $i), 0.7),
+        0 0 20px rgba(nth($colors, $i), 0.7),
+        0 0 40px rgba(nth($colors, $i), 0.7);
+      color: rgba(255, 255, 255, 0.4);
+      box-shadow:
+        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
+        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
+    }
+    #{nth($random-times, $i) * 1%} {
+      text-shadow:
+        0 0 0 rgba(nth($colors, $i), 0.5),
+        0 0 5px rgba(nth($colors, $i), 0.5),
+        0 0 10px rgba(nth($colors, $i), 0.5),
+        0 0 20px rgba(nth($colors, $i), 0.5);
+      color: rgba(200, 200, 200, 0.7);
+      box-shadow:
+        inset 0.05vw 0 0 1px rgba(nth($colors, $i), 0.5),
+        inset -0.1vw 0 0 rgba(nth($colors, $i), 0.5);
+    }
+    #{(nth($random-times, $i) + 1) * 1%} {
+      text-shadow:
+        0 0 5px rgba(nth($colors, $i), 0.7),
+        0 0 10px rgba(nth($colors, $i), 0.7),
+        0 0 20px rgba(nth($colors, $i), 0.7),
+        0 0 40px rgba(nth($colors, $i), 0.7);
+      color: rgba(255, 255, 255, 0.4);
+      box-shadow:
+        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
+        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
+    }
+    #{(nth($random-times, $i) + 2) * 1%} {
+      text-shadow:
+        0 0 0 rgba(nth($colors, $i), 0.5),
+        0 0 5px rgba(nth($colors, $i), 0.5),
+        0 0 10px rgba(nth($colors, $i), 0.5),
+        0 0 20px rgba(nth($colors, $i), 0.5);
+      color: rgba(200, 200, 200, 0.7);
+      box-shadow:
+        inset 0.05vw 0 0 1px rgba(nth($colors, $i), 0.5),
+        inset -0.1vw 0 0 rgba(nth($colors, $i), 0.5);
+    }
+    #{(nth($random-times, $i) + 3) * 1%} {
+      text-shadow:
+        0 0 5px rgba(nth($colors, $i), 0.7),
+        0 0 10px rgba(nth($colors, $i), 0.7),
+        0 0 20px rgba(nth($colors, $i), 0.7),
+        0 0 40px rgba(nth($colors, $i), 0.7);
+      color: rgba(255, 255, 255, 0.4);
+      box-shadow:
+        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
+        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
+    }
+  }
+
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+  text-align: center;
+
+  > div:not(.median) {
+    display: block;
+    max-width: 75vw;
+    border-radius: 5px;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    z-index: 90;
+  }
+
+}
+
+.title {
+  text-align: center;
+  font-size: 44px;
+  font-family: 'Damion', cursive;
+}

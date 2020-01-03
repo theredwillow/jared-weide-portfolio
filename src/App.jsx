@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 const App = () => (
   <div className="App">
@@ -11,7 +11,6 @@ const App = () => (
         <div className="green line"></div>
         <div className="blue line"></div>
       </div>
-      <img src="/texas.svg" alt="From DFW, Texas"/>
       <div>
         Front-End Developer / UX Developer / JavaScript Expert
       </div>
