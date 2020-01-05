@@ -4,12 +4,12 @@ import './App.scss';
 const App = () => (
   <div className="App">
 
-    <div id="red-title" className="title">About Me</div>
-    <div id="red" className="section">
+    <div id="first-title" className="title">About Me</div>
+    <div id="first" className="section">
       <div className="median">
-        <div className="red line"></div>
-        <div className="green line"></div>
-        <div className="blue line"></div>
+        <div className="selected line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </div>
       <div>
         Front-End Developer / UX Developer / JavaScript Expert
@@ -28,12 +28,12 @@ const App = () => (
       </div>
     </div>
 
-    <div id="green-title" className="title">Projects</div>
-    <div id="green" className="section">
+    <div id="second-title" className="title">Projects</div>
+    <div id="second" className="section">
       <div className="median">
-        <div className="red line"></div>
-        <div className="green line"></div>
-        <div className="blue line"></div>
+        <div className="line"></div>
+        <div className="selected line"></div>
+        <div className="line"></div>
       </div>
         <div>
           <a
@@ -67,12 +67,12 @@ const App = () => (
         </div>
     </div>
 
-    <div id="blue-title" className="title">Experience</div>
-    <div id="blue" className="section">
+    <div id="third-title" className="title">Experience</div>
+    <div id="third" className="section">
       <div className="median">
-        <div className="red line"></div>
-        <div className="green line"></div>
-        <div className="blue line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="selected line"></div>
       </div>
       <div>
         September 2017 - August 2019<br />

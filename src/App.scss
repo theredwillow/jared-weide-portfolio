@@ -67,7 +67,7 @@ button:before {
 $colors: #E847AE, #13CA91, #FF9472;
 // #00FECA, #FDF200, #FF85EA;
 // rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
-$color-names: red, green, blue;
+$line-names: first, second, third;
 $animation-time: 10s;
 $random-times:
   random(97),
@@ -76,19 +76,19 @@ $random-times:
 
 @for $i from 1 through 3 {
 
-  ##{nth($color-names, $i)}-title {
+  ##{nth($line-names, $i)}-title {
     color: nth($colors, $i);
     text-shadow:
       0 0 10px nth($colors, $i),
       0 0 15px nth($colors, $i),
       0 0 20px nth($colors, $i),
       0 0 40px nth($colors, $i);
-    animation: #{nth($color-names, $i)}-flicker $animation-time infinite step-end;
+    animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
   }
 
-  ##{nth($color-names, $i)} {
+  ##{nth($line-names, $i)} {
 
-    animation: #{nth($color-names, $i)}-flicker $animation-time infinite step-end;
+    animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
 
     button {
       background-color: rgba(nth($colors, $i), 0.1);
@@ -108,7 +108,7 @@ $random-times:
         rgba(nth($colors, $i), 0.8), rgba(nth($colors, $i), 0) );
     }
 
-    .#{nth($color-names, $i)}.line {
+    .selected.line {
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
@@ -128,7 +128,7 @@ $random-times:
     }
   }
 
-  @keyframes #{nth($color-names, $i)}-flicker {
+  @keyframes #{nth($line-names, $i)}-flicker {
     0% {
       opacity: 0.9;
     }
