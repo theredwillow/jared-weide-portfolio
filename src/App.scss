@@ -5,6 +5,17 @@ body {
   scroll-behavior: smooth;
 }
 
+.bio {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: bottom right;
+  text-align: left !important;
+  width: 300px !important;
+  height: 150px;
+  background-image: url('/me.png');
+}
+
 .median {
   display: block;
   position: absolute;
@@ -31,7 +42,31 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-$colors: rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
+button {
+  display: inline-block;
+  position: relative;
+  backdrop-filter: blur(10px);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 3%;
+  right: 2.5%;
+  top: 5%;
+  height: 10px;
+  border-radius: 10px;
+}
+
+$colors: #E847AE, #13CA91, #FF9472;
+// #00FECA, #FDF200, #FF85EA;
+// rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
 $color-names: red, green, blue;
 $animation-time: 10s;
 $random-times:
@@ -42,151 +77,72 @@ $random-times:
 @for $i from 1 through 3 {
 
   ##{nth($color-names, $i)}-title {
-    animation: #{nth($color-names, $i)}-title-flicker $animation-time infinite step-end;
+    color: nth($colors, $i);
+    text-shadow:
+      0 0 10px nth($colors, $i),
+      0 0 15px nth($colors, $i),
+      0 0 20px nth($colors, $i),
+      0 0 40px nth($colors, $i);
+    animation: #{nth($color-names, $i)}-flicker $animation-time infinite step-end;
   }
 
   ##{nth($color-names, $i)} {
 
+    animation: #{nth($color-names, $i)}-flicker $animation-time infinite step-end;
+
+    button {
+      background-color: rgba(nth($colors, $i), 0.1);
+      text-shadow:
+        0 0 7px rgba(nth($colors, $i), 1), /* bloom */
+        0 1px 2px rgba(nth($colors, $i), 0.7); /* drop shadow */
+      box-shadow:
+        inset 0 -2.5px 10px rgba(nth($colors, $i), 0.4), /* top light */
+        inset 0 2.5px 10px rgba(nth($colors, $i), 0.4), /* bottom shadow */
+        /* multiple light sources yall */
+        -4px 4px 2.5px rgba(nth($colors, $i), 0.15), /* drop shadow 1 */
+        2.5px 9px 5px rgbaa(nth($colors, $i), 0.2); /* drop shadow 2 */
+    }
+
+    button:before {
+      background: linear-gradient(
+        rgba(nth($colors, $i), 0.8), rgba(nth($colors, $i), 0) );
+    }
+
     .#{nth($color-names, $i)}.line {
-      animation: #{nth($color-names, $i)}-line-flicker $animation-time infinite step-end;
+      box-shadow:
+        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
+        inset -0.2vw 0 1vw nth($colors, $i);
+      background-color: rgba(nth($colors, $i), 0.175);
     }
 
     > div:not(.median) {
-      animation: #{nth($color-names, $i)}-info-flicker $animation-time infinite step-end;
-    }
-  }
-  
-  @keyframes #{nth($color-names, $i)}-title-flicker {
-    0% {
-      color: rgba(nth($colors, $i), 0.5);
       text-shadow:
-        0 0 10px rgba(nth($colors, $i), 0.5),
-        0 0 15px rgba(nth($colors, $i), 0.5),
-        0 0 20px rgba(nth($colors, $i), 0.5),
-        0 0 40px rgba(nth($colors, $i), 0.5);
-    }
-    #{nth($random-times, $i) * 1%} {
-      color: rgba(nth($colors, $i), 0.25);
-      text-shadow:
-        0 0 5px rgba(nth($colors, $i), 0.25),
-        0 0 10px rgba(nth($colors, $i), 0.25),
-        0 0 20px rgba(nth($colors, $i), 0.25),
-        0 0 40px rgba(nth($colors, $i), 0.25);
-    }
-    #{(nth($random-times, $i) + 1) * 1%} {
-      color: rgba(nth($colors, $i), 0.5);
-      text-shadow:
-        0 0 10px rgba(nth($colors, $i), 0.5),
-        0 0 15px rgba(nth($colors, $i), 0.5),
-        0 0 20px rgba(nth($colors, $i), 0.5),
-        0 0 40px rgba(nth($colors, $i), 0.5);
-    }
-    #{(nth($random-times, $i) + 2) * 1%} {
-      color: rgba(nth($colors, $i), 0.25);
-      text-shadow:
-        0 0 5px rgba(nth($colors, $i), 0.25),
-        0 0 10px rgba(nth($colors, $i), 0.25),
-        0 0 20px rgba(nth($colors, $i), 0.25),
-        0 0 40px rgba(nth($colors, $i), 0.25);
-    }
-    #{(nth($random-times, $i) + 3) * 1%} {
-      color: rgba(nth($colors, $i), 0.5);
-      text-shadow:
-        0 0 10px rgba(nth($colors, $i), 0.5),
-        0 0 15px rgba(nth($colors, $i), 0.5),
-        0 0 20px rgba(nth($colors, $i), 0.5),
-        0 0 40px rgba(nth($colors, $i), 0.5);
+        0 0 5px nth($colors, $i),
+        0 0 10px nth($colors, $i),
+        0 0 20px nth($colors, $i),
+        0 0 40px nth($colors, $i);
+      color: rgb(255, 255, 255);
+      box-shadow:
+        inset 0.1vw 0 0.1vw 1px nth($colors, $i),
+        inset -0.2vw 0 0.5vw nth($colors, $i);
     }
   }
 
-  @keyframes #{nth($color-names, $i)}-line-flicker {
+  @keyframes #{nth($color-names, $i)}-flicker {
     0% {
-      box-shadow:
-        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
-        inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
+      opacity: 0.9;
     }
     #{nth($random-times, $i) * 1%} {
-      box-shadow:
-        inset 0.1vw 0 0.2vw nth($colors, $i),
-        inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
+      opacity: 0.6;
     }
     #{(nth($random-times, $i) + 1) * 1%} {
-      box-shadow:
-        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
-        inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
+      opacity: 0.9;
     }
     #{(nth($random-times, $i) + 2) * 1%} {
-      box-shadow:
-        inset 0.1vw 0 0.2vw nth($colors, $i),
-        inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
+      opacity: 0.6;
     }
     #{(nth($random-times, $i) + 3) * 1%} {
-      box-shadow:
-        inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
-        inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
-    }
-  }
-
-  @keyframes #{nth($color-names, $i)}-info-flicker {
-    0% {
-      text-shadow:
-        0 0 5px rgba(nth($colors, $i), 0.7),
-        0 0 10px rgba(nth($colors, $i), 0.7),
-        0 0 20px rgba(nth($colors, $i), 0.7),
-        0 0 40px rgba(nth($colors, $i), 0.7);
-      color: rgba(255, 255, 255, 0.4);
-      box-shadow:
-        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
-        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
-    }
-    #{nth($random-times, $i) * 1%} {
-      text-shadow:
-        0 0 0 rgba(nth($colors, $i), 0.5),
-        0 0 5px rgba(nth($colors, $i), 0.5),
-        0 0 10px rgba(nth($colors, $i), 0.5),
-        0 0 20px rgba(nth($colors, $i), 0.5);
-      color: rgba(200, 200, 200, 0.7);
-      box-shadow:
-        inset 0.05vw 0 0 1px rgba(nth($colors, $i), 0.5),
-        inset -0.1vw 0 0 rgba(nth($colors, $i), 0.5);
-    }
-    #{(nth($random-times, $i) + 1) * 1%} {
-      text-shadow:
-        0 0 5px rgba(nth($colors, $i), 0.7),
-        0 0 10px rgba(nth($colors, $i), 0.7),
-        0 0 20px rgba(nth($colors, $i), 0.7),
-        0 0 40px rgba(nth($colors, $i), 0.7);
-      color: rgba(255, 255, 255, 0.4);
-      box-shadow:
-        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
-        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
-    }
-    #{(nth($random-times, $i) + 2) * 1%} {
-      text-shadow:
-        0 0 0 rgba(nth($colors, $i), 0.5),
-        0 0 5px rgba(nth($colors, $i), 0.5),
-        0 0 10px rgba(nth($colors, $i), 0.5),
-        0 0 20px rgba(nth($colors, $i), 0.5);
-      color: rgba(200, 200, 200, 0.7);
-      box-shadow:
-        inset 0.05vw 0 0 1px rgba(nth($colors, $i), 0.5),
-        inset -0.1vw 0 0 rgba(nth($colors, $i), 0.5);
-    }
-    #{(nth($random-times, $i) + 3) * 1%} {
-      text-shadow:
-        0 0 5px rgba(nth($colors, $i), 0.7),
-        0 0 10px rgba(nth($colors, $i), 0.7),
-        0 0 20px rgba(nth($colors, $i), 0.7),
-        0 0 40px rgba(nth($colors, $i), 0.7);
-      color: rgba(255, 255, 255, 0.4);
-      box-shadow:
-        inset 0.1vw 0 0.1vw 1px rgba(nth($colors, $i), 0.75),
-        inset -0.2vw 0 0.5vw rgba(nth($colors, $i), 0.75);
+      opacity: 0.9;
     }
   }
 
@@ -198,7 +154,7 @@ $random-times:
   text-align: center;
 
   > div:not(.median) {
-    display: block;
+    width: max-content;
     max-width: 75vw;
     border-radius: 5px;
     margin: 0 auto 10px auto;

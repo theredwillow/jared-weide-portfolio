@@ -14,11 +14,17 @@ const App = () => (
       <div>
         Front-End Developer / UX Developer / JavaScript Expert
       </div>
+      <div className="bio">
+        Jared Weide<br/>
+        Front-End Developer
+      </div>
       <div>
         From Dallas / Fort Worth - DFW - Funky Town and Big D
       </div>
       <div>
         Son of a webmaster. Learned programming at a young age. Long-time programming hobbyist. Weekend warrior.
+        <br />
+        <button>Learn More</button>
       </div>
     </div>
 
@@ -55,6 +61,9 @@ const App = () => (
           >
             Yet Another Project
           </a>
+          <br />
+          <button>Learn More</button>
+          <button>Visit Site</button>
         </div>
     </div>
 
@@ -65,14 +74,13 @@ const App = () => (
         <div className="green line"></div>
         <div className="blue line"></div>
       </div>
-      <div className="neon">
-        August 2019 - December 2019
-        Cottonwood Financial
-      </div>
-
       <div>
-        September 2017 - August 2019
+        September 2017 - August 2019<br />
         Rental Beast
+      </div>
+      <div className="neon">
+        August 2019 - December 2019<br />
+        Cottonwood Financial
       </div>
     </div>
 
