@@ -11,12 +11,9 @@ const App = () => (
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <div>
-        Front-End Developer / UX Developer / JavaScript Expert
-      </div>
       <div className="bio">
         Jared Weide<br/>
-        Front-End Developer
+        <span className="profession"></span>
       </div>
       <div>
         From Dallas / Fort Worth - DFW - Funky Town and Big D

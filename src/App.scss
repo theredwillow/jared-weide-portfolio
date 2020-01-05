@@ -16,6 +16,23 @@ body {
   background-image: url('/me.png');
 }
 
+.profession:before {
+  content: 'Front-End Developer';
+  animation: profession-names 20s infinite;
+}
+
+@keyframes profession-names {
+  25% {
+    content: 'UX Developer';
+  }
+  50% {
+    content: 'Software Engineer';
+  }
+  75% {
+    content: 'JavaScript Expert';
+  }
+}
+
 .median {
   display: block;
   position: absolute;
@@ -64,7 +81,7 @@ button:before {
   border-radius: 10px;
 }
 
-$colors: #E847AE, #13CA91, #FF9472;
+$colors: #FF9472, #E847AE, #13CA91;
 // #00FECA, #FDF200, #FF85EA;
 // rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
 $line-names: first, second, third;
