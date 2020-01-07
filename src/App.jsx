@@ -4,17 +4,15 @@ import './App.scss';
 const App = () => (
   <div className="App">
 
-    <div id="scroll" className="info">
-      Scroll
-    </div>
+    <img id="scroll" className="info" src="/scroll.svg" alt="Scroll to see more" />
 
     <img id="name" src="/name.svg" alt="Jared Weide" />
 
     <img id="sun" src="/sun.svg" alt="Rising Sun" />
+    <div id="clouds" />
+    <div id="stars" />
 
-    <div id="click-cars" className="info">
-      Click a car to quickly jump to a section
-    </div>
+    <img id="click-cars" className="info" src="/click.svg" alt="Click a car to quickly jump to a section" />
 
     <div id="about-me" className="section">
       <div className="title">About Me</div>
