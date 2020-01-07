@@ -1,8 +1,89 @@
 body {
   font-family: sans-serif;
   background-color: rgba(10, 10, 10, 0.9);
-  padding-top: 50px;
+  padding-top: 40vh;
+  padding-bottom: 100vh;
   scroll-behavior: smooth;
+  // background-image: url('/80s-background.jpg');
+  background-image: radial-gradient(#483475, #070B34);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+#sun {
+  width: 40vh;
+  height: 40vh;
+}
+
+#name {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 75vw;
+  z-index: 500;
+  transition: width 0.75s;
+
+  @media only screen and (min-width: 600px) {
+    &:not(.fixed) {
+      transform: translate(0, 30vh);
+    }
+  }
+
+  &.fixed {
+    width: 50vw;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+  }
+}
+
+#ground {
+  background-image: url(/ground.svg);
+  // transform: perspective(100px) rotateX(45deg);
+  // perspective-origin: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 25vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#road {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 16vh;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(#FF9DE6, #FF85EA);
+}
+
+.lambo {
+  display: block;
+  margin: 2.5px;
+  height: 7.5vh;
+  position: absolute;
+  &:not(.other) {
+    right: 0;
+  }
+  &.first {
+    bottom: 16vh;
+  }
+  &.second {
+    bottom: 8vh;
+  }
+  &.third {
+    bottom: 0%;
+  }
 }
 
 .bio {
@@ -36,13 +117,13 @@ body {
 .median {
   display: block;
   position: absolute;
-  height: 90%;
+  height: 70%;
   padding: 0;
-  top: 0;
+  top: 50%;
   z-index: -100;
   left: 50%;
   text-align: center;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -55%);
 
   > * {
     display: inline-block;
@@ -84,7 +165,7 @@ button:before {
 $colors: #FF9472, #E847AE, #13CA91;
 // #00FECA, #FDF200, #FF85EA;
 // rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255);
-$line-names: first, second, third;
+$line-names: about-me, projects, experience;
 $animation-time: 10s;
 $random-times:
   random(97),
@@ -93,19 +174,19 @@ $random-times:
 
 @for $i from 1 through 3 {
 
-  ##{nth($line-names, $i)}-title {
-    color: nth($colors, $i);
-    text-shadow:
-      0 0 10px nth($colors, $i),
-      0 0 15px nth($colors, $i),
-      0 0 20px nth($colors, $i),
-      0 0 40px nth($colors, $i);
-    animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
-  }
-
   ##{nth($line-names, $i)} {
 
     animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
+
+    .title {
+      color: nth($colors, $i);
+      text-shadow:
+        0 0 10px nth($colors, $i),
+        0 0 15px nth($colors, $i),
+        0 0 20px nth($colors, $i),
+        0 0 40px nth($colors, $i);
+      animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
+    }
 
     button {
       background-color: rgba(nth($colors, $i), 0.1);
@@ -132,7 +213,7 @@ $random-times:
       background-color: rgba(nth($colors, $i), 0.175);
     }
 
-    > div:not(.median) {
+    > .card {
       text-shadow:
         0 0 5px nth($colors, $i),
         0 0 10px nth($colors, $i),
@@ -166,11 +247,24 @@ $random-times:
 }
 
 .section {
-  padding: 100px 0;
+  padding: 200px 0;
   position: relative;
   text-align: center;
 
-  > div:not(.median) {
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    text-align: center;
+    font-size: 44px;
+    font-family: 'Damion', cursive;
+  }
+
+  > .card {
     width: max-content;
     max-width: 75vw;
     border-radius: 5px;
@@ -182,10 +276,4 @@ $random-times:
     z-index: 90;
   }
 
-}
-
-.title {
-  text-align: center;
-  font-size: 44px;
-  font-family: 'Damion', cursive;
 }
