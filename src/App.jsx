@@ -4,15 +4,15 @@ import './App.scss';
 const App = () => (
   <div className="App">
 
-    <img id="scroll" className="info" src="/scroll.svg" alt="Scroll to see more" />
+    <img id="scroll" className="info" src="/images/scroll.svg" alt="Scroll to see more" />
 
-    <img id="name" src="/name.svg" alt="Jared Weide" />
+    <img id="name" src="/images/name.svg" alt="Jared Weide" />
 
-    <img id="sun" src="/sun.svg" alt="Rising Sun" />
+    <img id="sun" src="/images/sun.svg" alt="Rising Sun" />
     <div id="clouds" />
     <div id="stars" />
 
-    <img id="click-cars" className="info" src="/click.svg" alt="Click a car to quickly jump to a section" />
+    <img id="click-cars" className="info" src="/images/click.svg" alt="Click a car to quickly jump to a section" />
 
     <div id="about-me" className="section">
       <div className="title">About Me</div>
@@ -24,12 +24,37 @@ const App = () => (
       <div className="bio card">
         Jared Weide<br/>
         <span className="profession"></span>
+        <div id="social-media">
+          <a
+            href="https://www.linkedin.com/in/jared-weide-3670164b"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social-media/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a
+            href="https://medium.com/@theredwillows"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social-media/medium.png" alt="Medium" />
+          </a>
+          <a
+            href="https://github.com/theredwillow"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/social-media/github.png" alt="GitHub" />
+          </a>
+        </div>
       </div>
       <div className="card">
-        From Dallas / Fort Worth - DFW - Funky Town and Big D
+        <div className="title">From</div>
+        Dallas / Fort Worth
       </div>
       <div className="card">
-        Son of a webmaster. Learned programming at a young age. Long-time programming hobbyist. Weekend warrior.
+        <div className="title">Skills</div>
+        JavaScript, React, HTML, CSS, PHP, Python, or any programming language, given the time to practice
       </div>
     </div>
 
@@ -40,35 +65,52 @@ const App = () => (
         <div className="selected line"></div>
         <div className="line"></div>
       </div>
-        <div className="card">
-          <a
-            href="https://www.weidewedding2019.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Wedding Website
-          </a>
+        <div className="project card">
+          <div className="title">Wedding Website</div>
+          <div className="description">
+            Planning a wedding can be stressful. You have to hire a caterer, pick out a cake, and develop an RSVP system in React / Node to track who will be on venue during the three-day retreat.
+          </div>
+          <div className="buttons">
+            {/* <button>Learn More</button> */}
+            <a
+              href="https://www.weidewedding2019.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Visit Site</button>
+            </a>
+          </div>
         </div>
-        <div className="card">
-          <a
-            href="https://emperors-palace-jw.web.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Emperor's Palace
-          </a>
+        <div className="project card">
+          <div className="title">Emperor's Palace</div>
+          <div className="description">
+            Not everyone can afford a multi-million dollar mansion, but anyone with the determination and ThreeJS know-how can design one with 3D rendering!
+          </div>
+          <div className="buttons">
+            <a
+              href="https://medium.com/@theredwillows/3d-rendering-my-perfect-venue-til-6178a76e325f"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Learn More</button>
+            </a>
+            <a
+              href="https://emperors-palace-jw.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Visit Site</button>
+            </a>
+          </div>
         </div>
-        <div className="card">
-          <a
-            href="https://www.example.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Yet Another Project
-          </a>
-          <br />
-          <button>Learn More</button>
-          <button>Visit Site</button>
+        <div className="project card">
+          <div className="title">This Portfolio</div>
+          <div className="description">
+            Creating a website is not just about what code you know, you need artistic direction too. I hope you're enjoying the retrofuturistic vibes!
+          </div>
+          {/* <div className="buttons">
+            <button>Learn More</button>
+          </div> */}
         </div>
     </div>
 
@@ -80,32 +122,40 @@ const App = () => (
         <div className="selected line"></div>
       </div>
       <div className="card">
-        Childhood<br />
-        A lifetime of hobby experience<br />
+        <div className="company">Hobby Work</div>
+        <div className="description">
+          My father was a webmaster so I learned HTML/CSS at a very young age. I maintained a personal website throughout high school, learning skills like JavaScript, PHP, and MySQL. I got my bachelor's degree in linguistics, but never lost interest in programming. I used my Python skills to explore the <a href="https://www.nltk.org/" target="_blank" rel="noopener noreferrer">Natural Language Toolkit</a>. While I was still struggling to figure out what to make of my career, I wrote <a href="https://github.com/theredwillow/SLP_Assessment" target="_blank" rel="noopener noreferrer">an assessment tool for my Speech Language Pathology courses</a>. My hobby work continues to be a source of inspiration and learning for me.
+        </div>
         <button>Learn More</button>
       </div>
       <div className="card">
-        September 2017 - August 2019<br />
-        Rental Beast
+        <div className="company">Rental Beast</div>
+        <div className="time">September 2017 - August 2019</div>
+        <div className="description">
+          Having started as a data-entry specialist, I automated my work and got the attention of our VP of Technology. I began with a project of writing DOM manipulating scripts, but quickly moved into the tech team. I did important maintenance work on the employees' JavaScript system and the customers' Ruby on Rails system.
+        </div>
       </div>
       <div className="card">
-        August 2019 - December 2019<br />
-        Cottonwood Financial
+        <div className="company">Cottonwood Financial</div>
+        <div className="time">August 2019 - December 2019</div>
+        <div className="description">
+          Our team built React components that query the Kentico CMS through GraphQL. We assembled them together, making important architectural and dependency decisions along the way. Finally, we created Jest tests and a Storybook, bug squashed, and finished building the new Cash Store website from scratch!
+        </div>
       </div>
     </div>
 
     <div id="ground" alt="Freeway on the Ground">
       <div id="road">
-          {/* <img className="other lambo" src="/lambo.png" alt="Other Lambo" /> */}
+          {/* <img className="other lambo" src="/images/lambo.png" alt="Other Lambo" /> */}
 
           <a href="#about-me">
-            <img className="first lambo" src="/lambo.png" alt="First Lambo" />
+            <img className="first lambo" src="/images/lambo.png" alt="First Lambo" />
           </a>
           <a href="#projects">
-            <img className="second lambo" src="/lambo.png" alt="Second Lambo" />
+            <img className="second lambo" src="/images/lambo.png" alt="Second Lambo" />
           </a>
           <a href="#experience">
-            <img className="third lambo" src="/lambo.png" alt="Third Lambo" />
+            <img className="third lambo" src="/images/lambo.png" alt="Third Lambo" />
           </a>
       </div>
     </div>

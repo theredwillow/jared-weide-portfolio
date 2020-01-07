@@ -4,7 +4,6 @@ body {
   padding-top: 40vh;
   padding-bottom: 100vh;
   scroll-behavior: smooth;
-  // background-image: url('/80s-background.jpg');
   background-image: radial-gradient(#483475, #070B34);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -16,6 +15,7 @@ body {
 #sun {
   width: 40vh;
   height: 40vh;
+  margin-bottom: 200px;
 }
 
 // https://codepen.io/WebSonick/pen/vjmgu
@@ -32,12 +32,12 @@ body {
 }
 
 #stars {
-  background: transparent url('/stars.png') repeat top center;
+  background: transparent url('/images/backgrounds/stars.png') repeat top center;
   z-index:-500;
 }
 
 #clouds {
-  background: transparent url('/clouds.png') repeat top center;
+  background: transparent url('/images/backgrounds/clouds.png') repeat top center;
   z-index: -100;
   opacity: 0.5;
   animation: move-clouds-back 250s linear infinite;
@@ -90,7 +90,7 @@ body {
 }
 
 #ground {
-  background-image: url('/ground.svg');
+  background-image: url('/images/backgrounds/ground.svg');
   // transform: perspective(100px) rotateX(45deg);
   // perspective-origin: bottom;
   background-repeat: no-repeat;
@@ -135,13 +135,14 @@ body {
 
 .bio {
   display: inline-block;
+  position: relative;
   background-repeat: no-repeat;
   background-size: auto;
   background-position: bottom right;
   text-align: left !important;
   width: 300px !important;
   height: 150px;
-  background-image: url('/me.png');
+  background-image: url('/images/me.png');
 }
 
 .profession:before {
@@ -158,6 +159,17 @@ body {
   }
   75% {
     content: 'JavaScript Expert';
+  }
+}
+
+#social-media {
+  position: absolute;
+  left: 7.5px;
+  bottom: 5px;
+  img {
+    width: 10%;
+    height: 10%;
+    margin: 0 2.5px;
   }
 }
 
@@ -223,10 +235,10 @@ $random-times:
 
   ##{nth($line-names, $i)} {
 
+    color: nth($colors, $i);
     animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
 
-    .title {
-      color: nth($colors, $i);
+    > .title {
       text-shadow:
         0 0 10px nth($colors, $i),
         0 0 15px nth($colors, $i),
@@ -298,7 +310,7 @@ $random-times:
   position: relative;
   text-align: center;
 
-  .title {
+  > .title {
     position: absolute;
     top: 0;
     left: 0;
@@ -313,7 +325,7 @@ $random-times:
 
   > .card {
     width: max-content;
-    max-width: 75vw;
+    max-width: 300px;
     border-radius: 5px;
     margin: 0 auto 10px auto;
     text-align: center;
@@ -323,4 +335,36 @@ $random-times:
     z-index: 90;
   }
 
+}
+
+.card {
+  .title {
+    font-weight: bold;
+  }
+}
+
+.project {
+  .title {
+    margin-bottom: 5px;
+  }
+  .buttons {
+    margin-top: 5px;
+  }
+}
+
+.description {
+  font-size: 14px;
+}
+
+#experience {
+  .company {
+    font-weight: bold;
+  }
+  .time {
+    font-style: italic;
+    font-size: 12px;
+  }
+  .description {
+    margin-top: 5px;
+  }
 }
