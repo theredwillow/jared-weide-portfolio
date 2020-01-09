@@ -126,7 +126,7 @@ const App = () => (
         <div className="description">
           My father was a webmaster so I learned HTML/CSS at a very young age. I maintained a personal website throughout high school, learning skills like JavaScript, PHP, and MySQL. I got my bachelor's degree in linguistics, but never lost interest in programming. I used my Python skills to explore the <a href="https://www.nltk.org/" target="_blank" rel="noopener noreferrer">Natural Language Toolkit</a>. While I was still struggling to figure out what to make of my career, I wrote <a href="https://github.com/theredwillow/SLP_Assessment" target="_blank" rel="noopener noreferrer">an assessment tool for my Speech Language Pathology courses</a>. My hobby work continues to be a source of inspiration and learning for me.
         </div>
-        <button>Learn More</button>
+        {/* <button>Learn More</button> */}
       </div>
       <div className="card">
         <div className="company">Rental Beast</div>
