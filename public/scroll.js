@@ -7,19 +7,23 @@ const debounce = (fn) => {
     } 
 };
 
-
 const storeScroll = () => {
     const threshold = window.innerHeight * 0.4;
     if (window.scrollY >= threshold) {
         document.getElementById("name").classList.add("fixed");
+        document.removeEventListener('scroll', scrollFunc);
+        // console.log("Scrolled past it!");
     }
     else {
-        document.getElementById("name").classList.remove("fixed");
+        console.log("Not scrolled past it yet!");
+        // document.getElementById("name").classList.remove("fixed");
     }
 };
 
-document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+const scrollFunc = debounce(storeScroll);
+
+document.addEventListener('scroll', scrollFunc, { passive: true });
 
 storeScroll();
 
-console.log("Scrolling functionality was included!");
+// console.log("Scrolling functionality was included!");
