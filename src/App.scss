@@ -196,7 +196,7 @@ body {
   width: 15px;
   height: 100%;
   box-shadow: inset 0.1vw 0 0.2vw rgb(0, 0, 0);
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #483475;
 }
 
 button {
@@ -248,16 +248,15 @@ $random-times:
     }
 
     button {
+      color: rgb(0,0,0);
+      font-weight: bold;
       background-color: rgba(nth($colors, $i), 0.1);
       text-shadow:
         0 0 7px rgba(nth($colors, $i), 1), /* bloom */
         0 1px 2px rgba(nth($colors, $i), 0.7); /* drop shadow */
       box-shadow:
-        inset 0 -2.5px 10px rgba(nth($colors, $i), 0.4), /* top light */
-        inset 0 2.5px 10px rgba(nth($colors, $i), 0.4), /* bottom shadow */
-        /* multiple light sources yall */
-        -4px 4px 2.5px rgba(nth($colors, $i), 0.15), /* drop shadow 1 */
-        2.5px 9px 5px rgbaa(nth($colors, $i), 0.2); /* drop shadow 2 */
+        inset 0 -2px 10px rgba(nth($colors, $i), 0.4),
+        inset 0 2px 10px rgba(nth($colors, $i), 0.4);
     }
 
     button:before {
@@ -269,7 +268,7 @@ $random-times:
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      background-color: rgba(nth($colors, $i), 0.175);
+      // background-color: nth($colors, $i);
     }
 
     > .card {
@@ -329,7 +328,7 @@ $random-times:
     border-radius: 5px;
     margin: 0 auto 10px auto;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(150, 150, 150, 0.9);
     backdrop-filter: blur(5px);
     padding: 20px;
     z-index: 90;
