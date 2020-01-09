@@ -102,9 +102,9 @@ body {
     repeat,
     repeat,
     no-repeat;
-  transform: perspective(125px) rotateX(45deg);
+  transform: translate(-16%, 0) perspective(125px) rotateX(45deg);
   perspective-origin: bottom;
-  width: 100vw;
+  width: 150vw;
   height: 25vh;
   position: fixed;
   bottom: 0;
