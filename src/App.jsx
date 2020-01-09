@@ -9,8 +9,6 @@ const App = () => (
     <img id="name" src="/images/name.svg" alt="Jared Weide" />
 
     <img id="sun" src="/images/sun.svg" alt="Rising Sun" />
-    <div id="clouds" />
-    <div id="stars" />
 
     {/* <img id="click-cars" className="info" src="/images/click.svg" alt="Click a car to quickly jump to a section" /> */}
 
