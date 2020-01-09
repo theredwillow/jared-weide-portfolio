@@ -1,8 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: rgba(10, 10, 10, 0.9);
-  padding-top: 40vh;
-  padding-bottom: 100vh;
+  padding-top: 50vh;
   scroll-behavior: smooth;
   background-image: radial-gradient(#483475, #070B34);
   background-repeat: no-repeat;
@@ -119,8 +118,30 @@ body {
   width: 27vh;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(#FF9DE6, #FF85EA);
+  background-image: linear-gradient(#FF9DE6, #FF85EA);
   z-index: 300;
+}
+
+#road::after {
+  width: 10px;
+  height: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 45%;
+  background-image: linear-gradient(to top, white 35%, transparent 35%);
+  background-repeat: repeat-y;
+  background-size: 100% 15%;
+  animation: cruising 0.5s infinite linear;
+}
+
+@keyframes cruising {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% 17.5%;
+  }
 }
 
 .lambo {
@@ -131,34 +152,16 @@ body {
   left: 50%;
   &.first {
     bottom: 12vh;
-    animation: driving-one 10s infinite;
+    transform: scale(0.5);
   }
   &.second {
     bottom: 7vh;
-    animation: driving-two 10s infinite;
+    transform: scale(0.75) translate(10px, 0);
   }
   &.third {
     bottom: 0%;
-    animation: driving-three 10s infinite;
+    transform: translate(20px, 0);
   }
-}
-
-@keyframes driving-one {
-  0% { transform: scale(0.5) translate(1%, 0); }
-  50% { transform: scale(0.5) translate(7%, 0); }
-  100% { transform: scale(0.5) translate(1%, 0); }
-}
-
-@keyframes driving-two {
-  0% { transform: scale(0.75) translate(12%, 0); }
-  50% { transform: scale(0.75) translate(22%, 0); }
-  100% { transform: scale(0.75) translate(12%, 0); }
-}
-
-@keyframes driving-three {
-  0% { transform: translate(26%, 0); }
-  50% { transform: translate(44%, 0); }
-  100% { transform: translate(26%, 0); }
 }
 
 .bio {
