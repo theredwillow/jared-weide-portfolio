@@ -90,12 +90,20 @@ body {
 }
 
 #ground {
-  background-image: url('/images/backgrounds/ground.svg');
-  // transform: perspective(100px) rotateX(45deg);
-  // perspective-origin: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size:
+    80px 20px,
+    80px 20px,
+    auto;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px),
+    linear-gradient(#7122FA, #560A86);
+  background-repeat:
+    repeat,
+    repeat,
+    no-repeat;
+  transform: perspective(125px) rotateX(45deg);
+  perspective-origin: bottom;
   width: 100vw;
   height: 25vh;
   position: fixed;
@@ -108,29 +116,49 @@ body {
   display: inline-block;
   position: relative;
   height: 100%;
-  width: 16vh;
+  width: 27vh;
   margin-left: auto;
   margin-right: auto;
   background: linear-gradient(#FF9DE6, #FF85EA);
+  z-index: 300;
 }
 
 .lambo {
   display: block;
-  margin: 2.5px;
+  z-index: 500;
   height: 7.5vh;
-  position: absolute;
-  &:not(.other) {
-    right: 0;
-  }
+  position: fixed;
+  left: 50%;
   &.first {
-    bottom: 16vh;
+    bottom: 12vh;
+    animation: driving-one 10s infinite;
   }
   &.second {
-    bottom: 8vh;
+    bottom: 7vh;
+    animation: driving-two 10s infinite;
   }
   &.third {
     bottom: 0%;
+    animation: driving-three 10s infinite;
   }
+}
+
+@keyframes driving-one {
+  0% { transform: scale(0.5) translate(1%, 0); }
+  50% { transform: scale(0.5) translate(7%, 0); }
+  100% { transform: scale(0.5) translate(1%, 0); }
+}
+
+@keyframes driving-two {
+  0% { transform: scale(0.75) translate(12%, 0); }
+  50% { transform: scale(0.75) translate(22%, 0); }
+  100% { transform: scale(0.75) translate(12%, 0); }
+}
+
+@keyframes driving-three {
+  0% { transform: translate(26%, 0); }
+  50% { transform: translate(44%, 0); }
+  100% { transform: translate(26%, 0); }
 }
 
 .bio {
@@ -268,7 +296,7 @@ $random-times:
       box-shadow:
         inset 0.2vw 0 0.5vw 0.1vw nth($colors, $i),
         inset -0.2vw 0 1vw nth($colors, $i);
-      // background-color: nth($colors, $i);
+      background-color: rgba(nth($colors, $i), 0.25);
     }
 
     > .card {

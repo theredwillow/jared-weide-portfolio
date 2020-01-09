@@ -4,7 +4,7 @@ import './App.scss';
 const App = () => (
   <div className="App">
 
-    <img id="scroll" className="info" src="/images/scroll.svg" alt="Scroll to see more" />
+    {/* <img id="scroll" className="info" src="/images/scroll.svg" alt="Scroll to see more" /> */}
 
     <img id="name" src="/images/name.svg" alt="Jared Weide" />
 
@@ -12,7 +12,7 @@ const App = () => (
     <div id="clouds" />
     <div id="stars" />
 
-    <img id="click-cars" className="info" src="/images/click.svg" alt="Click a car to quickly jump to a section" />
+    {/* <img id="click-cars" className="info" src="/images/click.svg" alt="Click a car to quickly jump to a section" /> */}
 
     <div id="about-me" className="section">
       <div className="title">About Me</div>
@@ -145,20 +145,20 @@ const App = () => (
     </div>
 
     <div id="ground" alt="Freeway on the Ground">
-      <div id="road">
-          {/* <img className="other lambo" src="/images/lambo.png" alt="Other Lambo" /> */}
-
-          <a href="#about-me">
-            <img className="first lambo" src="/images/lambo.png" alt="First Lambo" />
-          </a>
-          <a href="#projects">
-            <img className="second lambo" src="/images/lambo.png" alt="Second Lambo" />
-          </a>
-          <a href="#experience">
-            <img className="third lambo" src="/images/lambo.png" alt="Third Lambo" />
-          </a>
-      </div>
+      <div id="road" />
     </div>
+
+    {/* <img className="other lambo" src="/images/lambo.png" alt="Other Lambo" /> */}
+
+    <a href="#about-me">
+      <img className="first lambo" src="/images/lambo.png" alt="First Lambo" />
+    </a>
+    <a href="#projects">
+      <img className="second lambo" src="/images/lambo.png" alt="Second Lambo" />
+    </a>
+    <a href="#experience">
+      <img className="third lambo" src="/images/lambo.png" alt="Third Lambo" />
+    </a>
 
   </div>
 );
