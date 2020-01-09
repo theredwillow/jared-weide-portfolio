@@ -144,21 +144,21 @@ const App = () => (
       </div>
     </div>
 
-    <div id="ground" alt="Freeway on the Ground">
-      <div id="road" />
-    </div>
+    <div id="ground" alt="Freeway on the Ground" />
 
     {/* <img className="other lambo" src="/images/lambo.png" alt="Other Lambo" /> */}
 
-    <a href="#about-me">
-      <img className="first lambo" src="/images/lambo.png" alt="First Lambo" />
-    </a>
-    <a href="#projects">
-      <img className="second lambo" src="/images/lambo.png" alt="Second Lambo" />
-    </a>
-    <a href="#experience">
-      <img className="third lambo" src="/images/lambo.png" alt="Third Lambo" />
-    </a>
+    <div id="cars">
+      <a href="#about-me">
+        <img src="/images/lambo.png" alt="First Lambo" />
+      </a>
+      <a href="#projects">
+        <img src="/images/lambo.png" alt="Second Lambo" />
+      </a>
+      <a href="#experience">
+        <img src="/images/lambo.png" alt="Third Lambo" />
+      </a>
+    </div>
 
   </div>
 );

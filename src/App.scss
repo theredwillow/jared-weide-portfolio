@@ -89,21 +89,28 @@ body {
 }
 
 #ground {
-  background-size:
-    80px 20px,
-    80px 20px,
-    auto;
   background-image:
+    linear-gradient(to top, white 35%, transparent 35%),
+    linear-gradient(#FF9DE6, #FF85EA),
     linear-gradient(to right, grey 1px, transparent 1px),
     linear-gradient(to bottom, grey 1px, transparent 1px),
     linear-gradient(#7122FA, #560A86);
+  background-size:
+    5px 15%,
+    175px auto,
+    80px 5px,
+    80px 20px,
+    auto;
+  animation: cruising 0.5s infinite linear;
   background-repeat:
+    repeat-y,
+    no-repeat,
     repeat,
     repeat,
     no-repeat;
-  transform: translate(-16%, 0) perspective(125px) rotateX(45deg);
+  transform: perspective(125px) rotateX(45deg);
   perspective-origin: bottom;
-  width: 150vw;
+  width: 100vw;
   height: 25vh;
   position: fixed;
   bottom: 0;
@@ -111,57 +118,49 @@ body {
   z-index: 100;
 }
 
-#road {
-  display: inline-block;
-  position: relative;
-  height: 100%;
-  width: 27vh;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: linear-gradient(#FF9DE6, #FF85EA);
-  z-index: 300;
-}
-
-#road::after {
-  width: 10px;
-  height: 100%;
-  content: "";
-  display: block;
-  position: absolute;
-  left: 45%;
-  background-image: linear-gradient(to top, white 35%, transparent 35%);
-  background-repeat: repeat-y;
-  background-size: 100% 15%;
-  animation: cruising 0.5s infinite linear;
-}
-
 @keyframes cruising {
   from {
-    background-position: 0% 0%;
+    background-position:
+      center 0,
+      center,
+      0 0,
+      0 0,
+      0 0;
   }
   to {
-    background-position: 0% 17.5%;
+    background-position:
+      center 15%,
+      center,
+      0 0,
+      0 15%,
+      0 0;
   }
 }
 
-.lambo {
-  display: block;
-  z-index: 500;
-  height: 7.5vh;
+#cars {
   position: fixed;
-  left: 50%;
-  &.first {
-    bottom: 12vh;
-    transform: scale(0.5);
+  z-index: 500;
+  bottom: 0;
+  left: 52%;
+  height: 18vh;
+  width: 75px;
+
+  a > img {
+    height: 7.5vh;
   }
-  &.second {
-    bottom: 7vh;
-    transform: scale(0.75) translate(10px, 0);
+
+  a:nth-of-type(1) > img {
+      transform: scale(0.5) translate(-50%, -25%);
   }
-  &.third {
-    bottom: 0%;
-    transform: translate(20px, 0);
+
+  a:nth-of-type(2) > img {
+    transform: scale(0.75) translate(-25%, -75%);
   }
+
+  a:nth-of-type(3) > img {
+    transform: translate(-10%, -75%);
+  }
+
 }
 
 .bio {
