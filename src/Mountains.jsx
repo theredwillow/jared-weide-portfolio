@@ -8,8 +8,6 @@ const getRandom = (min, max) => {
   return Math.floor(Math.random() * (max - min) ) + min;
 };
 
-// How far down the next descending points MUST be from their parent
-const MIN_RISE = 25;
 // How far out the next descending points MUST be from their parent
 const MIN_RUN = 5;
 // DEVNOTE Should I make a MAX_RUN?
@@ -28,26 +26,20 @@ class Mountain {
 
     let left = {
       x: getRandom(0, peak.x - MIN_RUN),
-      y: getRandom(peak.y + MIN_RISE, 100)
+      y: 100
     };
-    if (left.x <= MIN_RUN) { left.y = 100; }
-    // if ( left.y < 100 ) {
-    //   this.bases.push(makeMountain(left));
-    // }
-    // else {
-      this.bases.push(left);
-    // }
+    this.bases.push(left);
 
     const right = {
       x: getRandom(peak.x + MIN_RUN, 100),
-      y: getRandom(peak.y + MIN_RISE, 100)
+      y: 100
     };
     if (right.x >= 100 - MIN_RUN) { right.y = 100; }
     this.bases.push(right);
   
     const middle = {
       x: getRandom(left.x + MIN_RUN, right.x - MIN_RUN),
-      y: getRandom(peak.y + MIN_RISE, 100)
+      y: 100
     };
     this.bases.splice(1, 0, middle);
 
