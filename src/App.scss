@@ -229,13 +229,18 @@ button:before {
 
 $colors: #FF9472, #E847AE, #13CA91;
 $line-names: about-me, projects, experience;
+$animation-time: 10s;	
+$random-times:	
+  random(97),	
+  random(97),	
+  random(97);
 
 @for $i from 1 through 3 {
 
   ##{nth($line-names, $i)} {
 
     color: nth($colors, $i);
-    opacity: 0.9;
+    animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
 
     > .title {
       text-shadow:
@@ -243,6 +248,7 @@ $line-names: about-me, projects, experience;
         0 0 15px nth($colors, $i),
         0 0 20px nth($colors, $i),
         0 0 40px nth($colors, $i);
+        animation: #{nth($line-names, $i)}-flicker $animation-time infinite step-end;
     }
 
     button {
@@ -280,6 +286,24 @@ $line-names: about-me, projects, experience;
         inset 0.1vw 0 0.1vw 1px nth($colors, $i),
         inset -0.2vw 0 0.5vw nth($colors, $i);
     }
+  }
+
+  @keyframes #{nth($line-names, $i)}-flicker {	
+    0% {	
+      opacity: 0.9;	
+    }	
+    #{nth($random-times, $i) * 1%} {	
+      opacity: 0.6;	
+    }	
+    #{(nth($random-times, $i) + 1) * 1%} {	
+      opacity: 0.9;	
+    }	
+    #{(nth($random-times, $i) + 2) * 1%} {	
+      opacity: 0.6;	
+    }	
+    #{(nth($random-times, $i) + 3) * 1%} {	
+      opacity: 0.9;	
+    }	
   }
 
 }
