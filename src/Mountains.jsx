@@ -1,17 +1,11 @@
 import React from 'react';
 
-const NUM_OF_PEAKS = 4;
-const LIKELIHOOD_OF_SIDE = 1/4;
+const NUM_OF_PEAKS = 2;
 
 const getRandom = (min, max) => {
   if (min < 0) { min = 0; }
   if (max > 100) { max = 100; }
   return Math.floor(Math.random() * (max - min) ) + min;
-};
-
-const lineStyle = {
-  stroke: 'white',
-  strokeWidth: 2
 };
 
 // How far down the next descending points MUST be from their parent
@@ -20,46 +14,45 @@ const MIN_RISE = 25;
 const MIN_RUN = 5;
 // DEVNOTE Should I make a MAX_RUN?
 
-const makeMountain = (peak) => {
-  let newMountain = {
-    peak,
-    bases: []
-  };
-  console.log(peak, "is creating two new points now.");
-
-  const left = {
-    x: getRandom(0, peak.x - MIN_RUN),
-    y: getRandom(peak.y + MIN_RISE, 100)
-  };
-  console.log("One to the left and down at:", left);
-  if (left.x <= MIN_RUN) {
-    console.log("This hit the left side, cutting it off here");
-    left.y = 100;
+class Base {
+  constructor(location) {
+    this.location = location;
+    this.drawn = false;
   }
-  newMountain.bases.push(left);
+}
 
-  const right = {
-    x: getRandom(peak.x + MIN_RUN, 100),
-    y: getRandom(peak.y + MIN_RISE, 100)
-  };
-  console.log("And another to the right and down at:", right);
-  if (right.x >= 100 - MIN_RUN) {
-    console.log("This hit the right side, cutting it off here");
-    right.y = 100;
-  }
-  newMountain.bases.push(right);
+class Mountain {
+  constructor(peak) {
+    this.peak = peak;
+    this.bases = [];
 
-  const makeSide = Math.random() <= LIKELIHOOD_OF_SIDE;
-  if (makeSide) {
-    const middle = {
-      x: getRandom(left.x, right.x),
+    let left = {
+      x: getRandom(0, peak.x - MIN_RUN),
       y: getRandom(peak.y + MIN_RISE, 100)
     };
-    newMountain.bases.splice(1, 0, middle);
-  }
+    if (left.x <= MIN_RUN) { left.y = 100; }
+    // if ( left.y < 100 ) {
+    //   this.bases.push(makeMountain(left));
+    // }
+    // else {
+      this.bases.push(left);
+    // }
 
-  return newMountain;
-};
+    const right = {
+      x: getRandom(peak.x + MIN_RUN, 100),
+      y: getRandom(peak.y + MIN_RISE, 100)
+    };
+    if (right.x >= 100 - MIN_RUN) { right.y = 100; }
+    this.bases.push(right);
+  
+    const middle = {
+      x: getRandom(left.x + MIN_RUN, right.x - MIN_RUN),
+      y: getRandom(peak.y + MIN_RISE, 100)
+    };
+    this.bases.splice(1, 0, middle);
+
+  }
+}
 
 export default function Mountains() {
   let mountains = [];
@@ -67,22 +60,20 @@ export default function Mountains() {
     const farLeft = i * (100 / NUM_OF_PEAKS) + MIN_RUN;
     const farRight = (i + 1) * (100 / NUM_OF_PEAKS) - MIN_RUN;
     const newPeak = { x: getRandom(farLeft, farRight), y: 0 };
-    mountains = [...mountains, makeMountain(newPeak)];
+    mountains = [...mountains, new Mountain(newPeak)];
   }
-  mountains = mountains
-    .map(({peak, bases}, i) =>
-      bases.map((base, j) =>
-        <line
-          key={`peak${i}-base${j}`}
-          id={`peak${i}-base${j}`}
-          x1={`${peak.x}%`}
-          y1={`${peak.y}%`}
-          x2={`${base.x}%`}
-          y2={`${base.y}%`}
-          style={lineStyle}
-        />
-      )
-    );
+
+  mountains = mountains.map(({peak, bases}, i) =>
+    bases.map((base, j) =>
+      <line
+        key={`peak${i}-base${j}`}
+        id={`peak${i}-base${j}`}
+        x1={`${peak.x}%`}
+        y1={`${peak.y}%`}
+        x2={`${base.x}%`}
+        y2={`${base.y}%`}
+      />
+  ));
   return (
     <svg className="mountains">
       
