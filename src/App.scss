@@ -64,6 +64,22 @@ body {
   z-index: 500;
 }
 
+.mountains {
+  position: fixed;
+  bottom: 19vh;
+  width: calc(35.5vw - 87.5px);
+  height: 7.5vh;
+
+  &:nth-of-type(1) {
+    left: 16vw;
+  }
+
+  &:nth-of-type(2) {
+    right: 15vw;
+  }
+
+}
+
 #ground {
   background-image:
     linear-gradient(to top, white 35%, transparent 35%),

@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 
+import Mountains from './Mountains';
+
 const App = () => (
   <div className="App">
 
@@ -142,6 +144,8 @@ const App = () => (
       </div>
     </div>
 
+    <Mountains />
+    <Mountains />
     <div id="ground" alt="Freeway on the Ground" />
 
     {/* <img className="other lambo" src="/images/lambo.png" alt="Other Lambo" /> */}
