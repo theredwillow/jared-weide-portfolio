@@ -15,7 +15,7 @@ const lineStyle = {
 };
 
 // How far down the next descending points MUST be from their parent
-const MIN_RISE = 20;
+const MIN_RISE = 25;
 // How far out the next descending points MUST be from their parent
 const MIN_RUN = 5;
 // DEVNOTE Should I make a MAX_RUN?
@@ -32,7 +32,7 @@ const makeMountain = (peak) => {
     y: getRandom(peak.y + MIN_RISE, 100)
   };
   console.log("One to the left and down at:", left);
-  if (left.x === 0) {
+  if (left.x <= MIN_RUN) {
     console.log("This hit the left side, cutting it off here");
     left.y = 100;
   }
@@ -43,7 +43,7 @@ const makeMountain = (peak) => {
     y: getRandom(peak.y + MIN_RISE, 100)
   };
   console.log("And another to the right and down at:", right);
-  if (right.x === 100) {
+  if (right.x >= 100 - MIN_RUN) {
     console.log("This hit the right side, cutting it off here");
     right.y = 100;
   }
