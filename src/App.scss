@@ -65,10 +65,15 @@ body {
 }
 
 .mountains {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+
   position: fixed;
-  bottom: 19vh;
+  bottom: 18vh;
   width: calc(35.5vw - 87.5px);
   height: 7.5vh;
+  z-index: 50;
 
   &:nth-of-type(1) {
     left: 16vw;
@@ -76,11 +81,6 @@ body {
 
   &:nth-of-type(2) {
     right: 15vw;
-  }
-
-  line {
-    stroke: white;
-    stroke-width: 2;
   }
 
 }

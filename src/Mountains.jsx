@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NUM_OF_PEAKS = 2;
+const NUM_OF_PEAKS = 5;
 
 const getRandom = (min, max) => {
   if (min < 0) { min = 0; }
@@ -12,62 +12,61 @@ const getRandom = (min, max) => {
 const MIN_RUN = 5;
 // DEVNOTE Should I make a MAX_RUN?
 
-class Base {
-  constructor(location) {
-    this.location = location;
-    this.drawn = false;
-  }
-}
-
 class Mountain {
-  constructor(peak) {
-    this.peak = peak;
-    this.bases = [];
+  constructor(i) {
+    const farLeft = i * (100 / NUM_OF_PEAKS) + MIN_RUN;
+    const farRight = (i + 1) * (100 / NUM_OF_PEAKS) - MIN_RUN;
+    this.id = `mountain$i`;
+    this.peakX = getRandom(farLeft, farRight);
+    this.leftX = getRandom(0, this.peakX - MIN_RUN);
+    this.rightX = getRandom(this.peakX + MIN_RUN, 100);
+    this.middleX = getRandom(this.leftX + MIN_RUN, this.rightX - MIN_RUN);
+  }
 
-    let left = {
-      x: getRandom(0, peak.x - MIN_RUN),
-      y: 100
-    };
-    this.bases.push(left);
-
-    const right = {
-      x: getRandom(peak.x + MIN_RUN, 100),
-      y: 100
-    };
-    if (right.x >= 100 - MIN_RUN) { right.y = 100; }
-    this.bases.push(right);
-  
-    const middle = {
-      x: getRandom(left.x + MIN_RUN, right.x - MIN_RUN),
-      y: 100
-    };
-    this.bases.splice(1, 0, middle);
-
+  draw() {
+    return [
+      <path
+        key={`${this.id}-front`}
+        className="front-face"
+        d={`M${this.leftX},100 L${this.peakX},0 L${this.middleX},100 Z`}
+        vector-effect="non-scaling-stroke"
+        fill="url(#front-gradient)"
+      />,
+      <path
+        key={`${this.id}-right`}
+        className="right-face"
+        d={`M${this.middleX},100 L${this.peakX},0 L${this.rightX},100 Z`}
+        vector-effect="non-scaling-stroke"
+        fill="url(#side-gradient)"
+      />
+    ];
   }
 }
 
 export default function Mountains() {
   let mountains = [];
   for (let i = 0; i < NUM_OF_PEAKS; i++) {
-    const farLeft = i * (100 / NUM_OF_PEAKS) + MIN_RUN;
-    const farRight = (i + 1) * (100 / NUM_OF_PEAKS) - MIN_RUN;
-    const newPeak = { x: getRandom(farLeft, farRight), y: 0 };
-    mountains = [...mountains, new Mountain(newPeak)];
+    const thisMountain = new Mountain(i);
+    mountains.push(thisMountain.draw());
   }
-
-  mountains = mountains.map(({peak, bases}, i) =>
-    bases.map((base, j) =>
-      <line
-        key={`peak${i}-base${j}`}
-        id={`peak${i}-base${j}`}
-        x1={`${peak.x}%`}
-        y1={`${peak.y}%`}
-        x2={`${base.x}%`}
-        y2={`${base.y}%`}
-      />
-  ));
   return (
-    <svg className="mountains">
+    <svg
+      width="100%"
+      height="100%"
+      className="mountains"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
+        <defs>
+          <radialGradient id="front-gradient">
+            <stop offset="25%" stop-color="#7122FA" />
+            <stop offset="95%" stop-color="#560A86" />
+          </radialGradient>
+          <radialGradient id="side-gradient">
+            <stop offset="5%" stop-color="#483475" />
+            <stop offset="95%" stop-color="#070B34" />
+          </radialGradient>
+        </defs>
        { mountains }
     </svg>
   );
