@@ -68,12 +68,6 @@ export default function Mountains() {
   ));
   return (
     <svg className="mountains">
-      
-      <rect width="100%" height="100%" style={{
-        fill: 'rgb(0,0,255)',
-        strokeWidth: 3,
-        stroke: 'rgb(0,0,0)'
-       }} />
        { mountains }
     </svg>
   );
