@@ -142,6 +142,13 @@ const App = () => (
           Our team built React components that query the Kentico CMS through GraphQL. We assembled them together, making important architectural and dependency decisions along the way. Finally, we created Jest tests and a Storybook, bug squashed, and finished building the new Cash Store website from scratch!
         </div>
       </div>
+      <div className="card">
+        <div className="company">Verizon</div>
+        <div className="time">February 2020 - Present</div>
+        <div className="description">
+          Technicians need to hunt down hardware problems. Our team develops a unified display of the current issues in the wireless network. Our website helps them create tickets more effectively, after our artificial intelligence helps triage the exact problem.
+        </div>
+      </div>
     </div>
 
     <Mountains />
