@@ -146,7 +146,7 @@ const App = () => (
         <div className="company">Verizon</div>
         <div className="time">February 2020 - Present</div>
         <div className="description">
-          Technicians need to hunt down hardware problems. Our team develops a unified display of the current issues in the wireless network. Our website helps them create tickets more effectively, after our artificial intelligence helps triage the exact problem.
+          Our technicians need to fix inevitable network outages. My team is tasked with creating a meaningful user experience for exploring what our artificial intelligence thinks the problems might be. Our unified display helps the support center triage and create tickets more effectively, with an intricate React component system that relies on a Redux-managed state.
         </div>
       </div>
     </div>
