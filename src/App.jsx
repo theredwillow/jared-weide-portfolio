@@ -73,7 +73,7 @@ const App = () => (
           <div className="buttons">
             {/* <button>Learn More</button> */}
             <a
-              href="https://www.weidewedding2019.com/"
+              href="https://weidewedding2019-9bbd1.firebaseapp.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
