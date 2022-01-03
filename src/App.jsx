@@ -54,7 +54,7 @@ const App = () => (
       </div>
       <div className="card">
         <div className="title">Skills</div>
-        JavaScript, React, HTML, CSS, PHP, Python, or any programming language, given the time to practice
+        JavaScript (including ES6/TypeScript), React, HTML, CSS, or any programming language, given the time to practice
       </div>
     </div>
 
@@ -144,9 +144,16 @@ const App = () => (
       </div>
       <div className="card">
         <div className="company">Verizon</div>
-        <div className="time">February 2020 - Present</div>
+        <div className="time">February 2020 - March 2021</div>
         <div className="description">
-          Our technicians need to fix inevitable network outages. My team is tasked with creating a meaningful user experience for exploring what our artificial intelligence thinks the problems might be. Our unified display helps the support center triage and create tickets more effectively, with an intricate React component system that relies on a Redux-managed state.
+          Our technicians needed to fix inevitable network outages. I was brought in as a contractor tasked with creating a meaningful user experience for exploring what our artificial intelligence thought the problems could have been. Our unified display helped the support center triage and create tickets more effectively, with an intricate React component system that relied on Redux-managed state.
+        </div>
+      </div>
+      <div className="card">
+        <div className="company">De Lage Landen (DLL)</div>
+        <div className="time">March 2021 - Present</div>
+        <div className="description">
+          Our team develops an easy-to-use UX/UI for our clients to submit leasing applications. By maintaining our TypeScript, Storybook, and Jest testing, we ensure that all calculations are perfect on the frontend.
         </div>
       </div>
     </div>
