@@ -59,12 +59,12 @@ export default function Mountains() {
     >
         <defs>
           <radialGradient id="front-gradient">
-            <stop offset="25%" stop-color="#7122FA" />
-            <stop offset="95%" stop-color="#560A86" />
+            <stop offset="25%" stopColor="#7122FA" />
+            <stop offset="95%" stopColor="#560A86" />
           </radialGradient>
           <radialGradient id="side-gradient">
-            <stop offset="5%" stop-color="#483475" />
-            <stop offset="95%" stop-color="#070B34" />
+            <stop offset="5%" stopColor="#483475" />
+            <stop offset="95%" stopColor="#070B34" />
           </radialGradient>
         </defs>
        { mountains }

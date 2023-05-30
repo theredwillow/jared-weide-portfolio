@@ -235,6 +235,7 @@ button {
   border-radius: 10px;
   margin: 5px;
   cursor: pointer;
+  color: #ececec;
 }
 
 button:before {
@@ -273,7 +274,6 @@ $random-times:
     }
 
     button {
-      color: rgb(0,0,0);
       font-weight: bold;
       background-color: rgba(nth($colors, $i), 0.1);
       text-shadow:
@@ -359,6 +359,11 @@ $random-times:
     z-index: 90;
   }
 
+}
+
+// Needed to include .title and .median in nth-child count for first three .card's and .more
+#experience > :nth-child(n+6):not(.more) {
+  display: none;
 }
 
 .card {
